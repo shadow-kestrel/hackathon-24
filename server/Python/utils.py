@@ -1,6 +1,16 @@
+import nltk
+import utils
+import spacy
+
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.probability import FreqDist
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+nlp = spacy.load("en_core_web_lg")
+
 # nltk.download('stopwords')
 # nltk.download('punkt')
 
@@ -33,15 +43,6 @@ def canonize(doc):
 # test_string = "A claw is a curved, pointed appendage found at the end of a toe or finger in most amniotes (mammals, reptiles, birds)."
 # print(canonize(test_string))
 
-import nltk
-import utils
-import spacy
-
-from nltk.probability import FreqDist
-from nltk.tokenize import word_tokenize
-from nltk.tag import pos_tag
-
-nlp = spacy.load("en_core_web_lg")
 
 def GetProperNouns(doc):
     properNouns = []
@@ -141,3 +142,9 @@ def get_keywords(sentence, corpus, numOfKeywords = 10):
             mostRelevantWords[term] = [get_tfidf(term, normalized_sentence, corpus), pos_tag]
     
     return dict(sorted(mostRelevantWords.items(), key=lambda item: item[1], reverse=True)[:5]), dict(sorted(entityCounts.items(), key=lambda item: item[1], reverse=True)[:5])
+
+def GetSentiment(sentence):
+    sia = SentimentIntensityAnalyzer()
+    polarity = sia.polarity_scores(sentence)
+    polarity = round(polarity["compound"])
+    return polarity

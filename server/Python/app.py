@@ -32,10 +32,11 @@ with open("normalised_tweets.txt", "r") as file:
     for line in file.read().split("\n"):
         normalised_tweets.append(line.split())
 
-print(normalised_tweets[:6])
+sentence = "Tried a fucking awful new recipe for dinner"
 
-sentence = "Tried a new recipe for dinner"
+def catify(sentence):
+    keywords = utils.get_keywords(sentence, normalised_tweets)
+    sentiment = utils.GetSentiment(sentence)
+    return (keywords, sentiment)
 
-print(utils.get_keywords(sentence, normalised_tweets))
-
-def catify(text_in):
+print(catify(sentence))
