@@ -1,4 +1,22 @@
+@import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
 @font-face{
     font-family: 'Comic Sans MS';
     src: url(COMIC.TTF);
+}
+.title {
+    font-family: 'Impact';
+    color: rgb(36,39,58);
+}
+.subtitle {
+    font-family: 'Comic Sans MS';
+    color: rgb(36,39,58)
+}
+.main {
+    background-color: rgb(194,157,241);
+    text-align: center;
+}
+.catppuccin {
+    color:        var(--ctp-mocha-text-hex);
+    background:   rgba(var(--ctp-macchiato-base-rgb) 0.9);
+    border-color: hsla(var(--ctp-frappe-red-hsl) 0.75);
 }
