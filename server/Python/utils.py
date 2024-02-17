@@ -26,8 +26,8 @@ def stem(token_list):
 def canonize(doc):
     doc = word_tokenize(doc)
     doc = normalise(doc)
+    #doc = stem(doc)
     doc = remove_stopwords(doc)
-    doc = stem(doc)
     return doc
 
 # test_string = "A claw is a curved, pointed appendage found at the end of a toe or finger in most amniotes (mammals, reptiles, birds)."
