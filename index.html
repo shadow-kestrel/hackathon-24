@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html class="main" lang="en">
+<html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C(h)atbot</title>
 </head>
-<div class="main">
-    <h1 class="title">Welcome to C(h)atbot!</h1>
-    <h3 class="subtitle">Enter your prompt below:</h3>
-    <input type="text" name="Enter prompt...">
-    <button>Send</button>
-</div>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1 class="title">C(h)atBot</h1>
+            <div class="mode-toggle" onclick="toggleDarkMode()">
+                <img id="catOutline" alt="Cat Head Outline">
+            </div>
+        </div>
+        <div class="chat-container">
+            <div id="chatHistory" class="chat-history"></div>
+        </div>
+        <div class="input-container">
+            <div class="text-bubble">
+                <input type="text" id="userPrompt" placeholder="Enter your prompt...">
+            </div>
+            <button onclick="sendPrompt()">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
