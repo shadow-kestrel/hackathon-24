@@ -34,4 +34,8 @@ function sendPrompt() {
     };
 
     replyGetter.send(JSON.stringify({ userInput }));
+
+    window.location.assign(
+  "http://kestrel.gay/catbot/",
+);
 }
