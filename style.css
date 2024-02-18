@@ -18,15 +18,31 @@ body {
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: auto;
     background-color: rgb(194, 157, 241); 
 }
 
 .title {
     font-family: 'Impact';
+    padding-right: 25px;
     color: rgb(36, 39, 58);
+}
+
+.subheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle {
+    font-family: 'Comic Sans MS';
+    color: rgb(36, 39, 58);
+}
+
+.catimg { 
+    margin: 25px;
 }
 
 .mode-toggle {
@@ -71,7 +87,11 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: #ffffff;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: pink;
+    background-color: #e9d5f5;
+    margin: 25px;
 }
 
 .text-bubble {

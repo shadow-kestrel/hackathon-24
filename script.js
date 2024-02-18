@@ -16,7 +16,22 @@ function sendPrompt() {
 
     document.getElementById("userPrompt").value = "";
 
-    // the emotions logic and actual gifs will get implemented here but for now this is an example of how it will work for visual purposes 
-    const placeholderCatGif = '<img src="placeholder-cat.gif" alt="Cat Response">';
-    chatHistory.innerHTML += `<div class="cat-response">${placeholderCatGif}</div>`;
+    const replyGetter = new XMLHttpRequest();
+    replyGetter.open("POST", "http://kestrel.gay/catbot/next_gif.url");
+    replyGetter.setRequestHeader("Content-Type", "application/json");
+
+    replyGetter.onload = function () {
+        if (replyGetter.status === 200) {
+            const catGifUrl = replyGetter.responseText;
+            chatHistory.innerHTML += `<div class="cat-response"><img src="${catGifUrl}" alt="Cat Response"></div>`;
+        } else {
+            console.error("Error fetching cat GIF:", replyGetter.statusText);
+        }
+    };
+
+    replyGetter.onerror = function () {
+        console.error("Network error occurred while fetching cat GIF.");
+    };
+
+    replyGetter.send(JSON.stringify({ userInput }));
 }
