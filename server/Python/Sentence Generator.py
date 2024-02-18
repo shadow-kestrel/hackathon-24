@@ -1,9 +1,10 @@
 from nltk.parse.generate import generate
 from nltk import CFG
 
+import random
 
 # Input is the result from get_keywords() function
-def generate_sentence(keywords, maxWordsPerSentence = 5):
+def generate_sentence(keywords, maxWordsPerSentence = 8):
 
     spec = """
     S -> NP VP | VP
@@ -41,7 +42,11 @@ def generate_sentence(keywords, maxWordsPerSentence = 5):
 
     generated_sentences = generate(grammar, n = maxWordsPerSentence)
 
+    list_of_generated_sentences = []
+
     for sentence in generated_sentences:
-        return " ".join(sentence)
-    
-    return "" 
+        list_of_generated_sentences.append(" ".join(sentence))
+
+    id = random.randrange(len(list_of_generated_sentences))
+
+    return list_of_generated_sentences[id]
