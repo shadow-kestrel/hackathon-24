@@ -17,6 +17,8 @@ function sendPrompt() {
     document.getElementById("userPrompt").value = "";
 
     // the emotions logic and actual gifs will get implemented here but for now this is an example of how it will work for visual purposes 
+	  const reply_getter = new XMLHttpRequest();
+		reply_getter.open("POST", "http://kestrel.gay/catbot/next_gif.url");
     const placeholderCatGif = '<img src="placeholder-cat.gif" alt="Cat Response">';
     chatHistory.innerHTML += `<div class="cat-response">${placeholderCatGif}</div>`;
 }
