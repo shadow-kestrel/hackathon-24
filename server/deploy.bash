@@ -9,6 +9,6 @@ kill -TERM $(ps -x | grep message_handler.py | awk '{print $1}')
 
 cp Python/message_handler.py run
 
-python run/message_handler.py 2>> run/catbot_ERR &
+python3 run/message_handler.py 2>> run/catbot_ERR &
 
 
